@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/templates/Plantilla1.xhtml">
+
+            <ui:define name="content">
+                
+                <p:layout fullPage="false" style=" min-height: 1000px">
+
+                    <p:layoutUnit position="west" size="245" header="Left" collapsible="false">
+                        <h:form>
+                            <p:menu model="#{encuestaController.modelEncuestas}" />
+                        </h:form>
+                    </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                
+                <h:form id="formEncContestar">
+                    <p:messages id="mensaje" autoUpdate="true" severity="info, fatal, warn, error" showDetail="true"/>
+                    <p:panel id="pgEnc" >
+                        <p:panelGrid  id="pgEncContestar" rendered="#{encuestaController.idEncuestaSelected>0}" >
+                        <pe:fluidGrid id="fluidGrid" value="#{encuestaController.items}" var="data"  
+                                      resizeBound="false" hGutter="600" widgetVar="fluidGridWdgt">  
+
+                            <pe:fluidGridItem type="input">
+                                <div class="dynaFormLabel">
+                                    <p:outputLabel for="txt" value="#{data.label}"/>  
+                                </div>  
+                                <p:inputText id="txt" value="#{data.value}" required="#{data.required}"/>  
+                            </pe:fluidGridItem>
+
+                            <pe:fluidGridItem type="select" styleClass="select">
+                                <div class="dynaFormLabel">  
+                                    <p:outputLabel for="menu" value="#{data.label}"/>  
+                                </div>  
+                                <p:selectOneMenu id="menu" value="#{data.value}" required="#{data.required}">  
+                                    <f:selectItems value="#{data.selectItems}"/>  
+                                </p:selectOneMenu>  
+                            </pe:fluidGridItem>  
+
+                            <pe:fluidGridItem type="calendar" styleClass="calendar">
+                                <div class="dynaFormLabel"> 
+                                    <p:outputLabel for="cal" value="#{data.label}"/>  
+                                </div>  
+                                <p:calendar id="cal" value="#{data.value}" required="#{data.required}" showOn="button"/>  
+                            </pe:fluidGridItem>
+
+                            <pe:fluidGridItem type="radio">
+                                <div class="dynaFormLabel"> 
+                                    <p:outputLabel for="rad" value="#{data.label}"/>  
+                                </div>  
+                                <p:selectOneRadio id="rad" value="#{data.value}" required="#{data.required}" layout="grid" columns="3">
+                                    <f:selectItems value="#{data.selectItems}"/>
+                                </p:selectOneRadio>
+                            </pe:fluidGridItem>
+
+                        </pe:fluidGrid>
+                            <p:commandButton value="Guardar" style="margin-top: 10px;" process=":formEncContestar:fluidGrid" 
+                                             update=":formEncContestar:fluidGrid :formEncContestar:mensaje"
+                                             actionListener="#{encuestaController.guardarContestada()}"/> 
+                        </p:panelGrid>
+                    </p:panel>
+                </h:form>
+                
+                </p:layoutUnit>
+
+            </p:layout>
+                <!--<h:outputStylesheet id="fluidGridCSS">  
+                    .pe-fluidgrid-item {  
+                        width: 160px;  
+                        height: 60px;  
+                    }
+
+                    .pe-fluidgrid-item input {  
+                        width: 150px;  
+                    }  
+
+                    .pe-fluidgrid-item.calendar input {  
+                        width: 120px;  
+                    }  
+
+                    .pe-fluidgrid-item.select .ui-selectonemenu {  
+                        width: 134px !important;  
+                    }  
+
+                    .dynaFormLabel {  
+                        font-weight: bold;  
+                        margin-bottom: 7px;  
+                    }
+                </h:outputStylesheet>-->
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

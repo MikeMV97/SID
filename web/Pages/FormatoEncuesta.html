@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+        <title>Formulario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+          <br />
+  <div class="container">
+    <section class="row">
+      <div class="col-md-12">
+        <h1 class="text-center">Formato de Encuesta de Satisfacción.</h1>
+        <p class="text-center">Sistema de Información de Datos</p>
+      </div>
+    </section>
+    <hr><br />
+    <section class="row">
+      <section class="col-md-12">
+        <h3>Datos Básicos.</h3>
+        <p></p>
+      </section>
+    </section>
+    <section class="row">
+      <section class="col-md-12">
+        <section class="row">
+          <div class="col-md-4">
+            <label for="tipoAtencion">Agencia: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select class="form-control" id="tipoAtencion">
+            <option value="CHURUBUSCO">MAZDA CHURUBUSCO</option>
+            <option value="POLANCO">MAZDA POLANCO</option>
+            <option value="DEL VALLE">MAZDA DEL VALLE</option>
+            <option value="LINDAVISTA">MAZDA LINDAVISTA</option>
+            <option value="UNIVERSIDAD">MAZDA UNIVERSIDAD</option>
+            <option value="SAN ANGEL">MAZDA SAN ÁNGEL</option>
+            <option value="TORRE NORTE">MAZDA TORRE NORTE</option>
+            <option value="ZAPATA">MAZDA ZAPATA</option>
+            <option value="INTERLOMAS">MAZDA INTERLOMAS</option>
+            <option value="COLLISION CENTER">MAZDA COLLISION CENTER</option>
+            <option value="PICACHO">MAZDA PICACHO</option>
+            <option value="TLÁHUAC">MAZDA TLÁHUAC</option>
+            <option value="RAL">MAZDA RAL</option>
+            <option value="SANTA FE">MAZDA SANTA FÉ</option>
+            <option value="RAVISA">MAZDA RAVISA</option>
+            <option value="CUAUTITLÁN">MAZDA CUAUTITLÁN</option>
+            <option value="METEPEC">MAZDA METEPEC</option>
+            <option value="CUERNAVACA">MAZDA CUERNAVACA</option>
+            <option value="CUAUTLA">MAZDA CUAUTLA</option>
+          </select>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="fechaActual">Fecha Actual: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="date" class="form-control" id="fechaActual" required>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="fechaActencion">Fecha Atención: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="date" class="form-control" id="fechaAtencion" required>
+            </div>
+          </div>
+        </section>
+        <section class="row">
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="nombreCompleto">Nombre Completo: </label>&nbsp;&nbsp;
+              <input type="text" class="form-control" id="nombreCompleto" maxlength="128" placeholder="Nombre Completo" required>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form_group">
+              <label for="edadEncuestado">Edad: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="number" class="form-control" id="edadEncuestado" placeholder="Edad" maxlength="3" required/>
+            </div>
+          </div>
+        </section>
+        <section class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="idIdentificacion">Identificación: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="number" id="idIdentificacion" class="form-control" placeholder="Numero de Identificación" maxlength="15" required/>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="telefono">Teléfono: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" class="form-control" id="telefono" placeholder="Numero Telefónico" maxlength="12" required/>
+          </div>
+          <div class="col-md-4">
+            <label for="VIN">VIN: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" class="form-control" id="VIN" placeholder="VIN Auto Cliente" required />
+          </div>
+        </section>
+      </section>
+    </section>
+    <hr />
+
+    <!--  Servicios  -->
+    <section class="row">
+      <div class="col-md-12">
+        <h3>Servicio.</h3>
+        <p></p>
+      </div>
+    </section>
+    <!--  PREGUNTA 1  -->
+    <section class="row">
+      <div class="col-md-6">
+        <p>1- ¿Cómo califica la atención brindada dentro de nuestras Instalaciones?</p>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Bien
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="preguntab" value="NO"> Regular
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="preguntac" value="NA"> Mal
+      </label>
+      </div>
+    </section>
+    <!--  PREGUNTA 2  -->
+    <section class="row">
+      <div class="col-md-6">
+        <p>2- ¿Considera aceptable el tiempo de espera de la entrega de su vehículo? </p>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label for="VIN">Si optó por 'No', seleccione el tiempo deseado: 
+        <input type="number" class="form-control" id="calificacion" placeholder="Seleccionar Calificación" maxlength="3"/>
+        </label>
+      </div>
+    </section>
+    <!--  PREGUNTA 3  -->
+    <section class="row">
+      <div class="col-md-6">
+        <p>3- ¿Al ingreso a la Agencia, encontró información visible que le indique el sitio donde va a ser atendido? </p>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="preguntac" value="NA"> N/A
+      </label>
+      </div>
+    </section>
+    <!--  PREGUNTA 4  -->
+    <section class="row">
+      <div class="col-md-6">
+        <p>4- ¿Sabe usted en que horario solicitar una cita y cuál es el número telefónico?</p>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="preguntac" value="NA"> N/A
+      </label>
+      </div>
+    </section><br>
+    <hr>
+    <!--  Refacciones  -->
+    <section class="row">
+      <div class="col-md-12">
+        <h3>Refacciones.</h3>
+        <p></p>
+      </div>
+    </section>
+    <!--  PREGUNTA 5  -->
+    <section class="row">
+      <div class="col-md-6">
+        <p>1- ¿Fue atendido de inmediato por alguno de nuestros vendedores?</p>
+        <!--  PREGUNTA 2 Refacciones 
+        precios
+        encontró lo que buscaba
+        tiempo de envío de piezas-->
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="preguntac" value="NA"> Regular
+      </label>
+      </div>
+    </section>
+    <!--  PREGUNTA 2 Refacciones  -->
+    <section class="row">
+      <div class="col-md-6">
+        <p>2- ¿Tuvo dudas respecto a las refacciones?</p>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="pregunta1Refa" value="SI"> Si
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="pregunta1Refa" value="NO"> No
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label for="VIN">Si optó por 'Si', sus preguntas fueron resueltas por los Vendedores? : </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="pregunta2Refa" value="SI"> Si
+      </label><br>
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="pregunta2Refa" value="NO"> No
+      </label>
+      </div>
+      <p></p>
+    </section>
+    <!--  PREGUNTA 3 Refaccciones  -->
+    <section class="row">
+      <div>
+      <p>3- ¿Considera que lo atendieron en condiciones de privacidad?</p>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+          <input type="radio" name="pregunta3Refa" id="pregunta3Refa" value="SI"> Si
+        </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+          <input type="radio" name="pregunta3Refa" id="pregunta3Refa" value="NO"> No
+        </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+          <input type="radio" name="pregunta3Refa" id="pregunta3Refa" value="NA"> N/A
+        </label>
+      </div>      
+    </section>
+    <!--  PREGUNTA 4  -->
+    <section class="row">
+      <div class="col-md-6">
+        <p>8- ¿El profesional que lo atendió se presentó por el nombre? </p>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta4Refa" id="pregunta4Refa" value="SI"> Si
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta4Refa" id="pregunta4Refa" value="NO"> No
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta4Refa" id="pregunta4Refa" value="NA"> N/A
+      </label>
+      </div>
+    </section>
+    <!--  PREGUNTA 5  -->
+    <section class="row">
+      <div class="col-md-6">
+        <p>9- ¿Piensa que fue atendido amablemente en esta Agencia?</p>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta5Refa" id="pregunta5Refa" value="SI"> Si
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta5Refa" id="pregunta5Refa" value="NO"> No
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta5Refa" id="pregunta5Refa" value="NA"> N/A
+      </label>
+      </div>
+    </section><br />
+    <hr />
+    <!--  VENTAS  -->
+    <section class="row">
+      <div class="col-md-12">
+        <h3>Salida del usuario.</h3>
+        <p></p>
+      </div>
+    </section>
+    <!--  PREGUNTA 1  VENTAS-->
+    <section class="row">
+      <div class="col-md-6">
+        <p>1- ¿A usted y a su familia les dieron una estancia cómoda?</p>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1Ventas" id="pregunta1Ventas" value="SI"> Si
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1Ventas" id="pregunta1Ventas" value="NO"> No
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1Ventas" id="pregunta1Ventas" value="NA"> Regular
+      </label>
+      </div>
+    </section>
+    <!--  PREGUNTA 2 VENTAS -->
+    <section class="row">
+      <div class="col-md-6">
+        <p>2- ¿Las áreas donde fue atendido, se encontraban limpias, comodas y agradables?</p>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta2Ventas" id="pregunta2Ventas" value="SI"> Si
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta2Ventas" id="pregunta2Ventas" value="NO"> No
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta2Ventas" id="pregunta2Ventas" value="NA"> Regular
+      </label>
+      </div>
+    </section>
+    <!--  PREGUNTA 3  VENTAS-->
+    <section class="row">
+      <div class="col-md-6">
+        <p>3- ¿Volveria a visitar nuestra Agencia?</p>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+      </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio">
+        <input type="radio" name="pregunta1" id="preguntac" value="NA"> Tal vez
+      </label>
+      </div>
+    </section>
+
+
+    <br />
+    <hr />
+    <!--  Satisfacción General  -->
+    <section class="row">
+      <div class="col-md-12">
+        <h3>Satisfacción General.</h3>
+        <p></p>
+      </div>
+    </section>
+    <!--  PREGUNTA 1 SATISFACCION GRAL  -->
+    <section class="row">
+      <div class="col-md-12">
+        <section class="row">
+          <div class="col-md-8">
+            <p>1- ¿Cómo calificaría su experiencia global respecto a los servicios, instalaciones, atención y precios?</p>
+          </div>
+          <div class="col-md-4">
+            <select class="form-control" id="pregunta13">
+            <option value="5">Muy Buena</option>
+            <option value="4">Buena</option>
+            <option value="3">Regular</option>
+            <option value="2">Mala</option>
+            <option value="1">Muy Mala</option>
+            <option value="0">No Responde</option>
+          </select>
+          </div>
+        </section>
+      </div>
+    </section><br />
+    <!--  PREGUNTA 2 SATISFACCION GRAL -->
+    <section class="row">
+      <div class="col-md-12">
+        <section class="row">
+          <div class="col-md-8">
+            <p>14- ¿Recomendaria a sus familiares y amigos esta Agencia Mazda?</p>
+          </div>
+          <div class="col-md-4">
+            <select class="form-control" id="pregunta14">
+            <option value="5">Definitivamente</option>
+            <option value="4">Sí</option>
+            <option value="3">Tal vez</option>
+            <option value="2">No</option>
+            <option value="1">Nunca</option>
+            <option value="0">No Responde</option>
+          </select>
+          </div>
+        </section>
+      </div>
+    </section><br />
+    <hr />
+
+    <!--  Comentarios  -->
+    <section class="row">
+      <div class="col-md-12">
+        <h3>Comentarios.</h3>
+        <p></p>
+      </div>
+    </section>
+    <section class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="comment">Comentarios: </label>
+          <textarea class="form-control" rows="1" id="comentarios" placeholder="Sea libre de mencionar cualquier queja y/o sugerencia..."></textarea>
+        </div>
+      </div>
+    </section>
+    <section class="row">
+      <div class="col-md-12"><br>
+        <button type="button" class="btn btn-info" id="saveForm" onclick="saveForm">Guardar Encuesta</button>
+        <button type="button" class="btn btn-danger" id="clearForm" onclick="saveForm">Limpiar Encuesta</button><br><br>
+        <button type="button" class="btn btn-info" id="editForm" onclick="saveForm">Editar Encuesta</button>
+        <button type="button" class="btn btn-info" id="saveForm" onclick="saveForm">Eliminar Encuesta</button>
+      </div>
+    </section>
+  </div>
+
+  <br /><br />
+  <footer class="container">
+    <p>Todos los derechos reservados para Mazda México.</p>
+  </footer>
+    </body>
+</html>

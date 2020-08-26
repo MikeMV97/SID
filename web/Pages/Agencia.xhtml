@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/templates/Plantilla1.xhtml">
+            <ui:define name="content">
+                <!--   CONSULTA    -->
+                <h:form id="formVistaAgs">
+                    <h:panelGrid id="pgAgen1" >
+                    <p:dataList value="#{agenciaController.lsAgencias}" var="ag" type="ordered">
+                        <f:facet name="header">Lista de Agencias</f:facet>
+                        #{ag.nombAgencia}
+                    </p:dataList>
+                    </h:panelGrid>
+                </h:form>
+                <!--   INSERTAR    -->
+                <h:form id="formInsAg">
+                    <p:messages id="mensaje0" autoUpdate="false" severity="info, fatal" showDetail="true" />
+                    
+                    <p:fieldset legend="Agregar Agencia" >
+                        <h:panelGrid columns="3" id="pgAgen0" >
+                            <p:outputLabel for="nom0" value="Nueva agencia: " />
+                            <p:inputText id="nom0" style="width: 300px" required="true" 
+                                         value="#{agenciaController.agencia.nombAgencia}" />
+                            <p:message for="nom0" />
+                            
+                            <p:column />
+                            <p:commandButton icon="ui-icon-disk" value="Insertar" update="mensaje0, pgAgen0"
+                                             actionListener="#{agenciaController.insertar()}" />
+                            <p:column />
+                        </h:panelGrid>
+                    </p:fieldset>
+                </h:form>
+                <!--   MODIFICAR    -->
+                <h:form id="formModAg">
+                    <p:messages id="mensaje" autoUpdate="false" severity="info, fatal" showDetail="true" />
+                    
+                    <p:fieldset legend="Modificar Agencia" >
+                        <h:panelGrid columns="3" id="pgAgen2" >
+                            <p:outputLabel for="agencia" value="Seleccione agencia: " />
+                            <p:selectOneMenu id="agencia"  
+                                             style="width: 300px" 
+                                             value="#{agenciaController.numAgen}">
+                                <f:selectItems value="#{agenciaController.selectItemsAgencia}" />
+                            </p:selectOneMenu>
+                            <p:message for="agencia" />
+                            
+                            <p:outputLabel for="nom" value="Nuevo nombre: " />
+                            <p:inputText id="nom" style="width: 300px" required="true" 
+                                         value="#{agenciaController.agencia.nombAgencia}" />
+                            <p:message for="nom" />
+                            
+                            <p:column />
+                            <p:commandButton icon="ui-icon-pencil" value="Modificar" update="mensaje, pgAgen2"
+                                             actionListener="#{agenciaController.modificar()}" />
+                            <p:column />
+                        </h:panelGrid>
+                    </p:fieldset>
+                </h:form>
+                <!--   ELIMINAR    -->
+                <h:form id="formEliAg">
+                    <p:messages id="mensaje2" autoUpdate="false" severity="info, fatal" showDetail="true" />
+                    
+                    <p:fieldset legend="Eliminar Agencia" >
+                        <h:panelGrid columns="3" id="pgAgen3" >
+                            <p:outputLabel for="agen1" value="Seleccione agencia: " />
+                            <p:selectOneMenu id="agen1"  
+                                             style="width: 300px" 
+                                             value="#{agenciaController.numAgen}">
+                                <f:selectItems value="#{agenciaController.selectItemsAgencia}" />
+                            </p:selectOneMenu>
+                            <p:message for="agen1" />
+                            
+                            <p:column />
+                            <p:commandButton icon="ui-icon-trash" value="Eliminar" update="mensaje2, pgAgen3"
+                                             actionListener="#{agenciaController.eliminar()}" />
+                            <p:column />
+                        </h:panelGrid>
+                    </p:fieldset>
+                </h:form>
+                
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

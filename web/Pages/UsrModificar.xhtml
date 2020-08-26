@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+        <!-- MODIFICAR CUENTA DE USR -->
+        <ui:composition template="./../WEB-INF/templates/Plantilla1.xhtml">
+            <ui:define name="content">
+                
+                <h:form id="formModEmp">
+                    <p:messages id="mensaje" autoUpdate="false" severity="info, fatal" showDetail="true" />
+                    <p:fieldset legend="Datos Personales" >
+                        <h:panelGrid columns="3" id="pgPersonal" >
+                            <p:outputLabel for="noms" value="Nombres: " />
+                            <p:inputText id="noms" style="width: 300px" required="true" 
+                                         value="#{cuentaController.persona.nombPer}" />
+                            <p:message for="noms" />
+
+                            <p:outputLabel for="apes" value="Apellidos: " />
+                            <p:inputText id="apes" style="width: 300px" required="true" 
+                                         value="#{cuentaController.persona.apellidosPer}"/>
+                            <p:message for="apes" />
+
+                            <p:outputLabel for="agencia" value="Agencia: " />
+                            <p:selectOneMenu id="agencia"  
+                                             style="width: 300px" 
+                                             value="#{cuentaController.agencia}">
+                                <f:selectItems value="#{cuentaController.selectItemsAgencia}" />
+                            </p:selectOneMenu>
+                            <p:message for="agencia" />
+
+                            <p:outputLabel for="depto" value="Departamento: " />
+                            <p:selectOneMenu id="depto"  
+                                             style="width: 300px" 
+                                             value="#{cuentaController.depto}">
+                                <f:selectItems value="#{cuentaController.selectItemsDeptos}" />
+                            </p:selectOneMenu>
+                            <p:message for="depto" />
+
+                            <p:outputLabel for="templeado" value="Puesto empleado: " />
+                            <p:selectOneMenu id="templeado" 
+                                             value="#{cuentaController.tpEmp}"
+                                             style="width: 300px" >
+                                <f:selectItems value="#{cuentaController.selectItemsEmpleado}" />
+                            </p:selectOneMenu>
+                            <p:message for="templeado" />
+                        </h:panelGrid>
+                    </p:fieldset>
+                    <p:fieldset legend="Datos de cuenta">
+                        <h:panelGrid columns="3" id="pgCuenta" >
+                            <p:outputLabel for="mail" value="correo electrónico: " />
+                            <p:inputText id="mail" type="mail" style="width: 300px" required="true" 
+                                         value="#{cuentaController.persona.correoPer}"/>
+                            <p:message for="mail" />
+
+                            <p:outputLabel for="psw1" value="Password: " />
+                            <p:password id="psw1" style="width: 300px" 
+                                        value="#{cuentaController.login.pswd}"
+                                        validatorMessage="Los passwords no coinciden" required="true" 
+                                        weakLabel="Débil" goodLabel="Bueno" strongLabel="Fuerte"
+                                        match="psw2" feedback="true" promptLabel="Ingrese clave"/>
+                            <p:message for="psw1" />
+
+                            <p:outputLabel value="Confirmar password: " />
+                            <p:password id="psw2"/>
+                            <p:message for="psw2" />
+                        </h:panelGrid>
+                    </p:fieldset>
+                    <h:panelGrid columns="2" id="pgButtons" >
+                        <p:column />
+                        <p:commandButton icon="ui-icon-pencil" value="Modificar" update="mensaje, pgPersonal, pgCuenta"
+                                     actionListener="#{cuentaController.modificar()}" />
+                    </h:panelGrid>
+                    <br />
+                </h:form>
+                <!-- DESACTIVAR CUENTA -->
+                <h:form id="formDesacCuenta">
+                    <p:fieldset legend="Desactivar cuenta">
+                        <h:panelGrid columns="2" id="pgCuentaEliminar" >
+                            <p:commandButton id="w" icon="ui-icon-locked" value="Desactivar"
+                                     actionListener="#{cuentaController.desactivarCuenta()}" />
+                            <p:outputLabel for="w" value="Si desactiva la cuenta solo un usuario activo podrá activarla" />
+
+                        </h:panelGrid>
+                    </p:fieldset>
+                </h:form>
+                
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

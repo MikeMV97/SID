@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/templates/Plantilla1.xhtml">
+
+            <ui:define name="content">
+                
+                <p:layout fullPage="false" style="min-height: 800px;">
+                    <!--<p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    </p:layoutUnit>-->
+
+                    <p:layoutUnit position="west" size="245" header="Departamentos" resizable="false" closable="false" collapsible="false" >
+                        <h:form>
+                            <p:menu model="#{indicadorController.modelEncuestas}" />
+                        </h:form>
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="center">
+                        <h:form id="formIndicador">
+                            <p:panel id="pnlCentIndicador" >
+                                <p:panel id="pnlEmpServicio" rendered="#{indicadorController.selectedOptn>0}" >
+                                    
+                                    <p:chart type="metergauge" model="#{indicadorController.meterGaugeModel}" 
+                                             style="width:800px;height:600px; margin: 0 auto; text-align:left; " />
+                                    
+                                </p:panel>
+                            </p:panel>
+                        </h:form>
+                    </p:layoutUnit>
+
+                    <!--<p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    </p:layoutUnit>-->
+                </p:layout>
+                
+            </ui:define>
+
+        </ui:composition>
+        
+    </body>
+</html>

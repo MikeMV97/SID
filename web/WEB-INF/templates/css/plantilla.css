@@ -1,0 +1,12 @@
+/* 
+    Created on : 01-dic-2017, 17:21:16
+    Author     : miamo
+*/
+.clsFooter {
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  color: white;
+}

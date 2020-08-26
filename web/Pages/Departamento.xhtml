@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/templates/Plantilla1.xhtml">
+
+            <ui:define name="content">
+                
+                <!--   INSERTAR    -->
+                <h:form id="formInsDepto">
+                    <p:messages id="mensaje2" autoUpdate="false" severity="info, fatal" showDetail="true" />
+                    
+                    <p:fieldset legend="Agregar Depto" >
+                        <h:panelGrid columns="3" id="pgDp2" >
+                            <p:outputLabel for="nom2" value="Nuevo departamento: " />
+                            <p:inputText id="nom2" style="width: 300px" required="true" 
+                                         value="#{deptoController.depto.nombDepto}" />
+                            <p:message for="nom2" />
+                            
+                            <p:column />
+                            <p:commandButton icon="ui-icon-disk" value="Insertar" update="mensaje2, pgDp2"
+                                             actionListener="#{deptoController.insertar()}" />
+                            <p:column />
+                        </h:panelGrid>
+                    </p:fieldset>
+                </h:form>
+                <!--   MODIFICAR    -->
+                <h:form id="formModDepto">
+                    <p:messages id="mensaje1" autoUpdate="false" severity="info, fatal" showDetail="true" />
+                    
+                    <p:fieldset legend="Modificar Departamento" >
+                        <h:panelGrid columns="3" id="pgDp1" >
+                            <p:outputLabel for="depto1" value="Seleccione departamento: " />
+                            <p:selectOneMenu id="depto1"  
+                                             style="width: 300px" 
+                                             value="#{deptoController.numDepto}">
+                                <f:selectItems value="#{deptoController.selectItemsDepto}" />
+                            </p:selectOneMenu>
+                            <p:message for="depto1" />
+                            
+                            <p:outputLabel for="nom1" value="Nuevo nombre: " />
+                            <p:inputText id="nom1" style="width: 300px" required="true" 
+                                         value="#{deptoController.depto.nombDepto}" />
+                            <p:message for="nom1" />
+                            
+                            <p:column />
+                            <p:commandButton icon="ui-icon-pencil" value="Modificar" update="mensaje1, pgDp1"
+                                             actionListener="#{deptoController.modificar()}" />
+                            <p:column />
+                        </h:panelGrid>
+                    </p:fieldset>
+                </h:form>
+                <!--   ELIMINAR    -->
+                <h:form id="formEliDepto">
+                    <p:messages id="mensaje3" autoUpdate="false" severity="info, fatal" showDetail="true" />
+                    
+                    <p:fieldset legend="Eliminar Departamento" >
+                        <h:panelGrid columns="3" id="pgDp3" >
+                            <p:outputLabel for="depto3" value="Seleccione departamento: " />
+                            <p:selectOneMenu id="depto3"  
+                                             style="width: 300px" 
+                                             value="#{deptoController.numDepto}">
+                                <f:selectItems value="#{deptoController.selectItemsDepto}" />
+                            </p:selectOneMenu>
+                            <p:message for="depto3" />
+                            
+                            <p:column />
+                            <p:commandButton icon="ui-icon-trash" value="Eliminar" update="mensaje3, pgDp3"
+                                             actionListener="#{deptoController.eliminar()}" />
+                            <p:column />
+                        </h:panelGrid>
+                    </p:fieldset>
+                </h:form>
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

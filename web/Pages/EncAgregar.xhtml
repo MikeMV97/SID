@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/templates/Plantilla1.xhtml">
+
+            <ui:define name="content">
+                
+            <div style="height:15px"></div>
+            <h:form id="formAltaEcuesta">
+                <p:messages id="mensaje" autoUpdate="false" severity="info, fatal, error" showDetail="true" />
+                <p:panel header="Registro de nueva encuesta">
+                    
+                <h:panelGrid columns="3" id="pgAltaEncuestaGnl" >
+                    
+                    <br />
+                    <p:outputLabel for="tpEncuesta" value="Tipo encuesta: " />
+                    <p:selectOneMenu id="tpEncuesta"  
+                                     style="width: 300px" 
+                                     value="#{encuestaNew.idTipoEnc}">
+                        <f:selectItems value="#{encuestaNew.lsSlctItmsTipoEnc}" />
+                    </p:selectOneMenu>
+                    <p:message for="tpEncuesta" />
+
+                    <p:outputLabel for="catDepto" value="Departamento: " />
+                    <p:selectOneMenu id="catDepto"  
+                                     style="width: 300px" 
+                                     value="#{encuestaNew.idDepto}">
+                        <f:selectItems value="#{encuestaNew.lsSlctItmsDepto}" />
+                    </p:selectOneMenu>
+                    <p:message for="catDepto" />
+                    
+                    <p:outputLabel for="titulo" value="Título: " />
+                    <p:inputText id="titulo" style="width: 300px" required="true" 
+                                 value="#{encuestaNew.encuesta.titulo}"/>
+                    <p:message for="titulo" />
+                    
+                </h:panelGrid>
+                
+                <p:separator />
+                <h:panelGrid id="pgAltaEncuestaPreguntas" columns="2">
+                    
+                    <p:outputLabel for="p1" value="Pregunta: " />
+                    <p:inputText id="p1" style="width: 600px" required="false"
+                                 value="#{encuestaNew.pregunta.textoPreg}"/>
+                    
+                    <p:outputLabel value="Tipo de respuesta: "/>
+                    <p:selectOneRadio value="#{encuestaNew.pregunta.idTipopreg}" layout="grid" columns="3">
+                        <f:selectItems value="#{encuestaNew.lsSlctItmsTpRespuesta}" var="v_tpResp" itemLabel="#{v_tpResp.label}" itemValue="#{v_tpResp.value}"/>
+                    </p:selectOneRadio>
+                    
+                    <p:column />
+                    <p:column>
+                        <p:commandButton id="btn_addEnc" value="Add" ajax="true" update=":formAltaEcuesta:pnlPregs mensaje" action="#{encuestaNew.reinit()}">
+                            <p:collector value="#{encuestaNew.pregunta}" addTo="#{encuestaNew.preguntas}" unique="true"/>
+                        </p:commandButton>
+                        <p:commandButton id="btn_reset" value="Reset" type="reset"/>
+                    </p:column>
+                    
+                </h:panelGrid><!--itemLabel="{encuestaNew.}" itemValue="{}"-->
+                
+                <p:outputPanel id="pnlPregs">
+                    <p:dataTable value="#{encuestaNew.preguntas}" var="preg" id="tblPregs">
+
+                        <p:column headerText="Enunciado">
+                            <h:outputText value="#{preg.textoPreg}" />
+                        </p:column>
+
+                        <p:column headerText="Categoria">
+                            <h:outputText value="#{preg.type}" />
+                        </p:column>
+
+                        <p:column headerText="Acción">
+                            <p:commandLink value="Eliminar" update=":formAltaEcuesta:pnlPregs" process=":formAltaEcuesta:pnlPregs">
+                                <p:collector value="#{preg}" removeFrom="#{encuestaNew.preguntas}" unique="true"/>
+                            </p:commandLink>
+                        </p:column>
+
+                    </p:dataTable>
+                </p:outputPanel>
+                <p:commandButton icon="ui-icon-disk" value="Guardar encuesta" update="mensaje" actionListener="#{encuestaNew.guardarEncuesta()}"/>
+                </p:panel>
+            </h:form>
+                
+            </ui:define>
+            
+            <h:outputStylesheet library="../fuentes/css" name="plantilla.css" />
+        </ui:composition>
+
+    </body>
+</html>
